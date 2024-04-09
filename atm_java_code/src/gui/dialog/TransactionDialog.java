@@ -1,4 +1,4 @@
-package gui.popups;
+package gui.dialog;
 
 import gui.BaseDialog;
 import serial.InputHandler;
