@@ -25,7 +25,7 @@ public abstract class GUI {
         height = tk.getScreenSize().height;
 
         try {
-            bankImg = new ImageIcon("DABANKCOLLOR.png");
+            bankImg = new ImageIcon("resources/DABANKCOLLOR.png");
         }catch (Exception e) {
             System.out.println("Image not found");
         }

@@ -11,7 +11,7 @@ public class MainPageButton extends BaseButton{
         super();
         button.setLocation(RIGHT,Y_POS(4));
         button.setText("Hoofdmenu");
-        button.setIcon(new ImageIcon("home.png"));
+        button.setIcon(new ImageIcon("resources/home.png"));
         button.setHorizontalTextPosition(SwingConstants.LEFT);
         button.setIconTextGap(20);
         button.addActionListener(e -> GUI.gotoPage(ChoicePage.KEY));

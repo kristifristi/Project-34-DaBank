@@ -10,7 +10,7 @@ public class BackButton extends BaseButton{
         super();
         button.setLocation(RIGHT,Y_POS(1));
         button.setText("Stap terug");
-        button.setIcon(new ImageIcon("back.png"));
+        button.setIcon(new ImageIcon("resources/back.png"));
         button.setHorizontalTextPosition(SwingConstants.LEFT);
         button.setIconTextGap(20);
         button.addActionListener(e -> GUI.gotoPage(keyPrevious));
