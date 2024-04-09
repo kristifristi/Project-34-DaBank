@@ -1,10 +1,18 @@
+const fs = require('fs');
+try {
+    const data = fs.readFileSync('./.env','utf8');
+    dbpass = data;
+} catch (e){
+    console.error(e);
+}
+
 const mysql = require("mysql2");
 
 
 const pool = mysql.createPool({
     host:"localhost",
     user: "main",
-    password: "YRpX5t;F+>^TnYqgy3EnOb",
+    password: dbpass,
     database:"test"
 });
 
