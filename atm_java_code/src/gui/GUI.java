@@ -1,5 +1,6 @@
 package gui;
 
+import com.fazecast.jSerialComm.SerialPortInvalidPortException;
 import gui.pages.BalancePage;
 import gui.pages.ChoicePage;
 import gui.pages.FastWithdrawPage;
@@ -17,9 +18,14 @@ public abstract class GUI {
     protected static int width;
     protected static int height;
     private static Timer timeOut = new Timer(120000, e -> timeoutAction());
-    private static ArduinoSerial arduino = new ArduinoSerial();
+    private static ArduinoSerial arduino;
 
     public static void makeGUI() {
+        try {
+            arduino = new ArduinoSerial();
+        } catch (SerialPortInvalidPortException e) {
+            System.out.println("Serial port not found");
+        }
         Toolkit tk = Toolkit.getDefaultToolkit();
         width = tk.getScreenSize().width;
         height = tk.getScreenSize().height;
@@ -35,7 +41,7 @@ public abstract class GUI {
         pages.put(BalancePage.KEY,new BalancePage());
         pages.put(FastWithdrawPage.KEY,new FastWithdrawPage());
 
-        frame = new JFrame("TestingInProgress");
+        frame = new JFrame("DaBank");
         frame.setIconImage(bankImg.getImage());
         for (BasePage page : pages.values()) {
             frame.add(page.getPage());
@@ -50,7 +56,6 @@ public abstract class GUI {
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        System.out.println(pages.size());
         timeOut.setRepeats(false);
     }
     private static void timeoutAction() {

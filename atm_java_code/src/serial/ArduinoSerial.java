@@ -7,12 +7,12 @@ import com.fazecast.jSerialComm.SerialPortInvalidPortException;
 
 public class ArduinoSerial {
     private final SerialPort serialPort;
-    private TimerScheduleHandler timedSchedule;
+    private ArduinoHandler arduinoHandler;
     public ArduinoSerial() throws SerialPortInvalidPortException {
         long timeStart = System.currentTimeMillis();
 
         serialPort = SerialPort.getCommPort("/dev/ttyUSB0");
-        serialPort.setComPortParameters(115200,8,1,0);
+        serialPort.setComPortParameters(2000000,8,1,0);
         serialPort.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 6);
 
         if(!serialPort.openPort()) {
@@ -22,13 +22,11 @@ public class ArduinoSerial {
 
         Runtime.getRuntime().addShutdownHook(new Thread(serialPort::closePort));
 
-        Timer timer = new Timer();
-        timedSchedule = new TimerScheduleHandler(timeStart);
+        arduinoHandler = new ArduinoHandler();
 
-        serialPort.addDataListener(timedSchedule);
+        serialPort.addDataListener(arduinoHandler);
 
 
-        System.out.println("Listen: " + timedSchedule.getListeningEvents());
-        timer.schedule(timedSchedule, 0, 1000);
+        System.out.println("Listen: " + arduinoHandler.getListeningEvents());
     }
 }

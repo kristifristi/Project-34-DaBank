@@ -9,12 +9,11 @@ public abstract class BaseButton {
     protected static final int GUI_HEIGHT = GUI.height;
     public static final int LEFT = 20; // Left side on GUI
     public static final int RIGHT = GUI_WIDTH - 520; // Right side on GUI
+    protected JButton button;
     public static int Y_POS(int position) { // position is between 1 and 4, since there is a maximum of 4 buttons stacked.
         position = (position < 1) ? 1 : (position > 4) ? 4 : position; // Is between 1 and 4, else make it between 1 and 4
         return (GUI_HEIGHT / 4) * --position + 20;
     }
-
-    protected JButton button;
     public BaseButton() {
         button = new JButton();
         button.setSize(500,200);

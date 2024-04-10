@@ -1,9 +1,11 @@
-package gui.dialog;
+package gui.dialogs;
 
 import gui.BaseDialog;
 import serial.InputHandler;
+import server.GetInfo;
 
 import javax.swing.Timer;
+import java.io.IOException;
 
 public class TransactionDialog extends BaseDialog {
     private String rfid = "";
@@ -70,8 +72,15 @@ public class TransactionDialog extends BaseDialog {
                     checkKeypad.restart();
                     return;
                 }
-                System.out.println("TransactionDialog finished");
+                System.out.println("TransactionDialog finished: " + code);
                 checkKeypad.stop();
+                String db = "";
+                try {
+                    db = GetInfo.getData("http://145.24.223.74:8100/noob/api/saldo?IBAN=5", "{\"pin\":" + code + ",\"uid\":\"9999\"}");
+                } catch (IOException e) {
+                    System.out.println("POTATOES");
+                }
+                getDisplayText().setText(db);
             }
         }
         else checkKeypad.restart();

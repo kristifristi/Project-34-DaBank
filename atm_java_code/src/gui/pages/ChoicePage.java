@@ -10,7 +10,7 @@ import javax.swing.*;
 public class ChoicePage extends BasePage{
     public static final String KEY = "CHOICEPAGE";
     public ChoicePage() {
-        page.setSize(GUI_WIDTH,GUI_HEIGHT);
+        super();
 
         page.add(new StopTransactionButton().getButton());
         page.add(new FastWithdrawButton().getButton());
