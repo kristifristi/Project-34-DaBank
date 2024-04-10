@@ -29,9 +29,11 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded());
 app.use(express.raw());
-const bodyParser = require("body-parser");
 
+const bodyParser = require("body-parser");
+const rawparser = bodyParser.raw();
 const textparser = bodyParser.text();
 //welcome to callback hell!
 
@@ -147,7 +149,7 @@ app.post('/testing/addcard', (req,res) => {
 
 });
 
-app.get('/noob/api/saldo', (req,res) => {
+app.post('/noob/api/saldo', (req,res) => {
     let saldoQueries = req.query;
     let saldoHeaders = req.headers;
     let saldoJson = req.body;
@@ -183,8 +185,9 @@ app.get('/noob/api/saldo', (req,res) => {
     return;
 });
 
-app.get("/JoramIsABitch", textparser,(req, res) => {
+app.post("/java-is-trash", (req, res) => {
     console.log(req.body);
+    console.log(req.headers);
     res.send(req.body);
     return;
 });
