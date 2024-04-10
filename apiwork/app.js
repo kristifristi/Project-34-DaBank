@@ -1,4 +1,5 @@
 const fs = require('fs');
+let dbpass = '';
 try {
     const data = fs.readFileSync('./.env','utf8');
     dbpass = data;
@@ -13,14 +14,25 @@ const pool = mysql.createPool({
     host:"localhost",
     user: "user",
     password: dbpass,
-    database:"test"
+    database:"erdCompliant"
 });
+
+const SHA256 = require("crypto-js/sha256");
+function sha256Stringify(uid, pin) {
+    return(SHA256(uid + pin).toString());
+}
+
 
 const express = require('express');
 const cors = require('cors');
 
 const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.raw());
+const bodyParser = require("body-parser");
 
+const textparser = bodyParser.text();
 //welcome to callback hell!
 
 
@@ -47,16 +59,17 @@ function dbquery(querystring, callbackfunc){
     })
 }
 
+function hasInjection(str){
+    return str.includes("\\") || str.includes("\"");
+}
+
 function validateIban(iban){
     const valid = new RegExp("[A-Z]{2}\\d{2}[A-Z0-9]{1,30}");
     return valid.test(iban);
 }
 
-app.use(cors());
-
 app.get('/api/noob/health', (req, res) => {
-    console.log('dokter is langsgekomen');
-    res.json({"status": "OK"});
+    res.json({"status": "chillin"});
 });
 
 
@@ -75,7 +88,7 @@ app.get('/testing/query', (req, res) => {
 });
 
 app.get('/testing/user/getx', (req, res) => {
-    q = req.query //get a direct reference to query object
+    let q = req.query //get a direct reference to query object
     if(q.user){
         dbquery(`select x from testable where text = "${q.user}"`, (table) => {
             res.json(table[0]);
@@ -86,7 +99,7 @@ app.get('/testing/user/getx', (req, res) => {
 });
 
 app.post('/testing/user/add', (req, res) => {
-    q = req.query
+    let q = req.query
     if(q.user){
         dbquery(`INSERT INTO testable (text,x,y) VALUES ("${q.user}",0,0);`, (table) => {
             res.status(200).send("user added");
@@ -104,7 +117,7 @@ app.get('/testing/user/getusers', (req, res) => {
 
 
 app.put('/testing/user/setx',(req, res) => {
-    q = req.query
+    let q = req.query
     if(q.user && q.amount){
         dbquery(`UPDATE testable SET x = ${q.amount} where text = "${q.user}"`, (table) => {
             res.status(200).send(`set x of ${q.user} to ${q.amount}`);
@@ -114,12 +127,9 @@ app.put('/testing/user/setx',(req, res) => {
     }
 });
 
-app.post('/testing/poster', (req, res) => {
-    res.send("good job");
-});
 
-app.get(('/testing/sanity'), (req,res) => {
-    u = req.query.user;
+app.get('/testing/sanity', (req,res) => {
+    let u = req.query.user;
     if(u){
         if(u.includes("\\") || u.includes("\"")){
             res.status(418).send("bitch");
@@ -133,6 +143,51 @@ app.get(('/testing/sanity'), (req,res) => {
     }
 });
 
+app.post('/testing/addcard', (req,res) => {
+
+});
+
+app.get('/noob/api/saldo', (req,res) => {
+    let saldoQueries = req.query;
+    let saldoHeaders = req.headers;
+    let saldoJson = req.body;
+    console.log(req.headers);
+    console.log(req.body);
+    if(!saldoQueries.IBAN){
+        console.log('I');
+        res.status(400).send("missing IBAN");
+        return;
+    }
+    if(!saldoHeaders['noob-token']){
+        console.log('N');
+        res.status(400).send("missing NOOB-TOKEN");
+        return;
+    }
+    if(!saldoJson.pin){
+        console.log('p');
+        res.status(400).send("missing pin");
+        return;
+    }
+    if(!saldoJson.uid){
+        console.log('u');
+        res.status(400).send("missing uid");
+        return;
+    }
+    let hash = sha256Stringify(saldoJson.uid, saldoJson.pin);
+    console.log(`pin: ${saldoJson.pin} uid: ${saldoJson.uid} hash: ${hash}`);
+    dbquery(` select balance as saldo from 
+    card join Account on idAccount = card.account
+    where card.hash = "${hash}"`, (results) => {
+        res.send(results[0]);
+    });
+    return;
+});
+
+app.get("/JoramIsABitch", textparser,(req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+    return;
+});
 
 app.listen(8100, () =>{
     console.log("AAAAAAAAAAAAAAAA I LIVE");
