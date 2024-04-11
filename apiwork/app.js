@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs');
 let dbpass = '';
 try {
@@ -10,11 +11,18 @@ try {
 const mysql = require("mysql2");
 
 
-const pool = mysql.createPool({
+const realpool = mysql.createPool({
     host:"localhost",
     user: "user",
     password: dbpass,
     database:"erdCompliant"
+});
+
+const testpool = mysql.createPool({
+    host:"localhost",
+    user: "user",
+    password: dbpass,
+    database:"test"
 });
 
 const SHA256 = require("crypto-js/sha256");
@@ -39,14 +47,14 @@ const textparser = bodyParser.text();
 
 
 //function to make doing queries easier. takes the query and a callback which takes the query result as a parameter
-function dbquery(querystring, callbackfunc){
-    pool.getConnection((err, Connection) => {
+function dbquery(usingPool, querystring, callbackfunc){
+    usingPool.getConnection((err, Connection) => {
         if(err) {
             console.error("can't connect mariadb", err)
             return
         }
 
-        pool.query(querystring, (err, results) => {
+        usingPool.query(querystring, (err, results) => {
             if (err) {
               console.error("Error querying the database:", err)
               return
@@ -76,7 +84,7 @@ app.get('/api/noob/health', (req, res) => {
 
 
 app.get('/testing/database', (req, res) => {
-    dbquery("SELECT * FROM testable", (table) => {
+    dbquery(testpool, "SELECT * FROM testable", (table) => {
         res.json(table);
     })
     
@@ -92,7 +100,7 @@ app.get('/testing/query', (req, res) => {
 app.get('/testing/user/getx', (req, res) => {
     let q = req.query //get a direct reference to query object
     if(q.user){
-        dbquery(`select x from testable where text = "${q.user}"`, (table) => {
+        dbquery(testpool,`select x from testable where text = "${q.user}"`, (table) => {
             res.json(table[0]);
         })
     } else {
@@ -103,7 +111,7 @@ app.get('/testing/user/getx', (req, res) => {
 app.post('/testing/user/add', (req, res) => {
     let q = req.query
     if(q.user){
-        dbquery(`INSERT INTO testable (text,x,y) VALUES ("${q.user}",0,0);`, (table) => {
+        dbquery(testpool,`INSERT INTO testable (text,x,y) VALUES ("${q.user}",0,0);`, (table) => {
             res.status(200).send("user added");
         })
     } else {
@@ -112,7 +120,7 @@ app.post('/testing/user/add', (req, res) => {
 });
 
 app.get('/testing/user/getusers', (req, res) => {
-    dbquery(`select text from testable`, (table) => {
+    dbquery(testpool,`select text from testable`, (table) => {
         res.json(table);
     })
 });
@@ -121,7 +129,7 @@ app.get('/testing/user/getusers', (req, res) => {
 app.put('/testing/user/setx',(req, res) => {
     let q = req.query
     if(q.user && q.amount){
-        dbquery(`UPDATE testable SET x = ${q.amount} where text = "${q.user}"`, (table) => {
+        dbquery(testpool,`UPDATE testable SET x = ${q.amount} where text = "${q.user}"`, (table) => {
             res.status(200).send(`set x of ${q.user} to ${q.amount}`);
         })
     } else {
@@ -136,7 +144,7 @@ app.get('/testing/sanity', (req,res) => {
         if(u.includes("\\") || u.includes("\"")){
             res.status(418).send("bitch");
         } else {
-            dbquery(`select * from testable where text = "${u}"`, (table) => {
+            dbquery(testpool,`select * from testable where text = "${u}"`, (table) => {
                 res.status(200).send(table);
             });
         }
@@ -177,7 +185,7 @@ app.post('/noob/api/saldo', (req,res) => {
     }
     let hash = sha256Stringify(saldoJson.uid, saldoJson.pin);
     console.log(`pin: ${saldoJson.pin} uid: ${saldoJson.uid} hash: ${hash}`);
-    dbquery(` select balance as saldo from 
+    dbquery(realpool,` select balance as saldo from 
     card join Account on idAccount = card.account
     where card.hash = "${hash}"`, (results) => {
         res.send(results[0]);
@@ -195,4 +203,3 @@ app.post("/java-is-trash", (req, res) => {
 app.listen(8100, () =>{
     console.log("AAAAAAAAAAAAAAAA I LIVE");
 });
-
