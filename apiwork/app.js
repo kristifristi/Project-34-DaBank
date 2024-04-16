@@ -34,7 +34,7 @@ app.get('/api/noob/health', (req, res) => {
     res.json({"status": "chillin"});
 });
 
-app.get('/api/noob/accountinfo', (req,res) => {   
+function infoApi (req,res) {   
     let queries = req.query
     if(!queries.iban){
         res.status(400).send("missing iban");
@@ -57,29 +57,29 @@ app.get('/api/noob/accountinfo', (req,res) => {
         res.status(418).send("you think you're smart don't you?");
         return;
     }
+
     sql.dbquery(sql.realpool,`select Card.hash as hash, Card.idCard as idCard, 
-        Account.name as aName, People.firstLetters as fName, People.lastName as lName, 
-        account.Balance as balance, account.IBAN as iban, 
-        Card.maxWrongAttempts - Card.wrongAttemptsDone as chances, 
-        Card.expiration < CURRENT_DATE as expired, Account.frozen as frozen
+    Account.accountName as aName, People.firstLetters as fName, People.lastName as lName, 
+    Account.balance as balance, Account.IBAN as iban, 
+    Card.maxWrongAttempts - Card.wrongAttemptsDone as chances, 
+    Card.expiration < CURRENT_DATE as expired, Account.frozen as frozen
     from Card
-    join Account on card.account = idAccount
-    join people on Account.owner = idPeople
-    where uid = ${queries.uid}`, (results) => {
+    join Account on Card.account = idAccount
+    join People on Account.owner = idPeople
+    where uid =  "${queries.uid}"`, (results) => {
         if(results.error){
             res.status(500).send("database error");
             return;
         }
 
         let result = results[0];
-        console.log(results);
         if(!result){
             res.status(404).send("uid not recognized");
             return;
         }
 
-        result.iban = result.iban.toUpperCase();
-        if(result.iban != queries.iban){
+        realIban = queries.iban.toUpperCase();
+        if(realIban != result.iban){
             res.status(404).send("iban mismatch");
             return;
         }
@@ -90,10 +90,10 @@ app.get('/api/noob/accountinfo', (req,res) => {
             res.status(403).send("card blocked after too many attempts");
         }
 
-        let genHash = sha256Stringify(queries.uid,queries.pin);
+        let genHash = sha256Stringify(queries.uid,queries.pin.toString());
         if(genHash != result.hash){
             res.status(401).json({"attempts_remaining" : result.chances});
-            sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = wrongAttemptsDone + 1 where idCard = ${result.Idcard}`, (results) => {});
+            sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = wrongAttemptsDone + 1 where idCard = "${result.idCard}"`, (results) => {});
             return;
         }
 
@@ -103,9 +103,12 @@ app.get('/api/noob/accountinfo', (req,res) => {
         'balance' : result.balance,
         'accountname' : result.aName});
     });
-});
+};
 
-app.post('/api/noob/withdraw', (req,res) => {
+app.get('/api/noob/accountinfo', infoApi);
+app.get('/api/accountinfo', infoApi);
+
+function withdrawApi (req,res) {
     let queries = req.query
     if(!queries.iban){
         res.status(400).send("missing iban");
@@ -132,14 +135,14 @@ app.post('/api/noob/withdraw', (req,res) => {
         return;
     }
     sql.dbquery(sql.realpool,`select Card.hash as hash, Card.idCard as idCard,  
-        account.Balance as balance, account.IBAN as iban, 
+        Account.balance as balance, Account.IBAN as iban, 
         Card.maxWrongAttempts - Card.wrongAttemptsDone as chances,
         Card.expiration < CURRENT_DATE as expired, Account.frozen as frozen,
-        Account.maxNegativeBalance as maxRed
+        Account.maxNegativeBalance as maxRed, Account.idAccount as idAccount
     from Card
-    join Account on card.account = idAccount
-    where uid = ${queries.uid}`, (results) => {
-        if(result.error){
+    join Account on Card.account = idAccount
+    where uid = "${queries.uid}"`, (results) => {
+        if(results.error){
             res.status(500).send("database error");
             return;
         }
@@ -151,7 +154,7 @@ app.post('/api/noob/withdraw', (req,res) => {
             return;
         }
 
-        result.iban = result.iban.toUpperCase();
+        queries.iban = queries.iban.toUpperCase();
         if(result.iban != queries.iban){
             res.status(404).send("iban mismatch");
             return;
@@ -166,24 +169,28 @@ app.post('/api/noob/withdraw', (req,res) => {
         if(result.chances <= 0){
             res.status(403).send("card blocked after too many attempts");
         }
-        if(result.maxRed >= result.balance - req.json.amount){
+        if(result.maxRed >= result.balance - req.body.amount){
             res.status(412).send("account balance too low");
         }
 
         let genHash = sha256Stringify(queries.uid,queries.pin);
         if(genHash != result.hash){
             res.status(401).json({"attempts_remaining" : result.chances});
-            sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = wrongAttemptsDone + 1 where idCard = ${result.Idcard}`, (results) => {});
+            sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = wrongAttemptsDone + 1 where idCard = ${result.idCard}`, (results) => {});
             return;
         }
         sql.dbquery(sql.realpool, `insert into TransactionLog value
-        (null,CURRENT_DATE,${result.iban},${ourIban},${result.amount},${req.ip},${result.Idcard})`,(results) => {
+        (null,CURRENT_TIME,"${result.iban}","${ourIban}",${req.body.amount},"${req.ip}",${result.idCard})`,(results) => {
             console.log(results);
         });
-        res.status(200);
+        sql.dbquery(sql.realpool, `update Account set balance = balance - ${req.body.amount} where idAccount = ${result.idAccount}`, (results) => {});
+        res.status(200).send();
+        return;
     });
-});
+}
 
+app.post('/api/noob/withdraw', withdrawApi);
+app.post('/api/withdraw', withdrawApi);
 
 
 app.listen(8100, () =>{
