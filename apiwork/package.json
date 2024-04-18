@@ -1,0 +1,19 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "workshop thing",
+  "main": "index.js",
+  "scripts": {
+    "test": "node app.js",
+    "maria": "node dbtest.js",
+    "leuk": "node leuk.js"
+  },
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.1",
+    "fs": "^0.0.1-security",
+    "mysql2": "^2.3.3"
+  }
+}
