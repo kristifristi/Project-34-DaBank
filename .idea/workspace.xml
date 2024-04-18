@@ -5,20 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27fc7e7c-74a1-42f0-b896-901420a44c71" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/atm_java_code/src/server/BankingData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project-34-DaBank_java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project-34-DaBank_java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atm_java_code/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atm_java_code/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/CheckBalanceDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/CheckBalanceDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atm_java_code/src/gui/pages/BalancePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/gui/pages/BalancePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atm_java_code/src/gui/pages/FastWithdrawPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/gui/pages/FastWithdrawPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atm_java_code/src/server/GetInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/server/GetInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BaseDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BaseDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BasePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/BalancePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/BalancePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/FastWithdrawPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/FastWithdrawPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/server/GetInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/server/GetInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/WithdrawDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/WithdrawDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BaseButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BaseDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BasePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/GUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/BackButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/BalanceButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/FastWithdrawButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/MainPageButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/StopTransactionButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/WithdrawButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/dialogs/CheckBalanceDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/dialogs/ServerCommDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/dialogs/WithdrawDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/BalancePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/ChoicePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/Eindscherm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/FastWithdrawPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/HomePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/ServerCommPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/WithdrawPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/serial/ArduinoHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/serial/ArduinoSerial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/serial/InputHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/server/BankingData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/server/GetInfo.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +74,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "java__atm",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/joram/Downloads/gson-gson-parent-2.10.1.zip",
+    "last_opened_file_path": "/home/joram/nextcloud/school/semester3/prjct/Git/Project-34-DaBank_java/atm_java_code",
     "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.2210145",
     "project.structure.side.proportion": "0.2",
@@ -69,10 +84,22 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Project-34-DaBank_java" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/atm_java_code" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Project-34-DaBank_java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Project-34-DaBank_java" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
