@@ -134,6 +134,7 @@ function withdrawApi (req,res) {
     }
     if(!req.body.amount){
         res.status(400).send("missing amount");
+        return;
     }
 
     if(sql.hasInjection(body.uid)){
@@ -172,15 +173,19 @@ function withdrawApi (req,res) {
 
         if(result.expired){
             res.status(403).send("card expired");
+            return;
         }
         if(result.frozen){
             res.status(403).send("account frozen");
+            return;
         }
         if(result.chances <= 0){
             res.status(403).send("card blocked after too many attempts");
+            return;
         }
         if(result.maxRed >= result.balance - req.body.amount){
             res.status(412).send("account balance too low");
+            return;
         }
 
         let genHash = sha256Stringify(body.uid,body.pincode);
@@ -192,6 +197,7 @@ function withdrawApi (req,res) {
         sql.dbquery(sql.realpool, `insert into TransactionLog value
         (null,CURRENT_TIME,"${result.iban}","${ourIban}",${req.body.amount},"${req.ip}",${result.idCard})`,(results) => {
             console.log(results);
+            return;
         });
         sql.dbquery(sql.realpool, `update Account set balance = balance - ${req.body.amount} where idAccount = ${result.idAccount}`, (results) => {});
         res.status(200).send();
