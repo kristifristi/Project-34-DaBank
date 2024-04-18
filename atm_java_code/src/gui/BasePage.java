@@ -30,4 +30,14 @@ public abstract class BasePage {
         button.setBorderPainted(false);
         return button;
     }
+    protected static JLabel titlePanel(String text) {
+        JLabel title = new JLabel(text);
+        title.setFont(new Font(Font.SANS_SERIF,Font.BOLD,32));
+        title.setHorizontalAlignment(JLabel.CENTER);
+        title.setForeground(Color.BLACK);
+        title.setBounds(GUI_WIDTH / 2 - 300,20,600,100);
+        title.setOpaque(true);
+        title.setBackground(new Color(215, 170, 35));
+        return title;
+    }
 }

@@ -7,13 +7,13 @@ import server.GetInfo;
 import javax.swing.Timer;
 import java.io.IOException;
 
-public class TransactionDialog extends BaseDialog {
+public abstract class ServerCommDialog extends BaseDialog {
     private String rfid = "";
     private String code = "";
     private final Timer checkRfid;
     private final Timer checkKeypad;
     private String text;
-    public TransactionDialog() {
+    public ServerCommDialog() {
         super((GUI_WIDTH/2-250),GUI_HEIGHT/2-100,500,200);
         checkRfid = new Timer(100, e -> rfidAction());
         checkRfid.stop();
@@ -72,19 +72,14 @@ public class TransactionDialog extends BaseDialog {
                     checkKeypad.restart();
                     return;
                 }
-                System.out.println("TransactionDialog finished: " + code);
                 checkKeypad.stop();
-                String db = "";
-                try {
-                    db = GetInfo.getData("http://145.24.223.74:8100/noob/api/saldo?IBAN=5", "{\"pin\":" + code + ",\"uid\":\"9999\"}");
-                } catch (IOException e) {
-                    System.out.println("POTATOES");
-                }
-                getDisplayText().setText(db);
+                comm(rfid,code);
+                System.out.println("ServerCommDialog l77");
             }
         }
         else checkKeypad.restart();
     }
+    protected abstract void comm(String rfid,String code);
     private String processInput(char input) {
         switch (input) {
             case '/': return code;

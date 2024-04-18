@@ -1,14 +1,12 @@
 package gui;
 
 import com.fazecast.jSerialComm.SerialPortInvalidPortException;
-import gui.pages.BalancePage;
-import gui.pages.ChoicePage;
-import gui.pages.FastWithdrawPage;
-import gui.pages.HomePage;
+import gui.pages.*;
 import serial.ArduinoSerial;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
 public abstract class GUI {
@@ -40,6 +38,12 @@ public abstract class GUI {
         pages.put(ChoicePage.KEY,new ChoicePage());
         pages.put(BalancePage.KEY,new BalancePage());
         pages.put(FastWithdrawPage.KEY,new FastWithdrawPage());
+        pages.put(WithdrawPage.KEY,new WithdrawPage());
+        pages.put(Eindscherm.KEY,new Eindscherm());
+
+        BufferedImage cursorImg = new BufferedImage(16,16,BufferedImage.TYPE_INT_ARGB);
+        Cursor bankCursor = Toolkit.getDefaultToolkit().createCustomCursor(
+                cursorImg,new Point(0,0),"blank cursor");
 
         frame = new JFrame("DaBank");
         frame.setIconImage(bankImg.getImage());
@@ -48,6 +52,7 @@ public abstract class GUI {
             page.setVisible(false);
         }
         pages.get(HomePage.KEY).setVisible(true);
+        timeOut.stop();
         frame.getContentPane().setBackground(new Color(205,14,14));
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true);
@@ -55,6 +60,7 @@ public abstract class GUI {
         frame.setLayout(null);
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+        //frame.getContentPane().setCursor(bankCursor); TODO
         frame.setVisible(true);
         timeOut.setRepeats(false);
     }

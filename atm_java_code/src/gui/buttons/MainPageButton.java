@@ -9,7 +9,7 @@ import java.awt.*;
 public class MainPageButton extends BaseButton{
     public MainPageButton() {
         super();
-        button.setLocation(RIGHT,Y_POS(4));
+        button.setLocation(RIGHT,Y_POS(3));
         button.setText("Hoofdmenu");
         button.setIcon(new ImageIcon("resources/home.png"));
         button.setHorizontalTextPosition(SwingConstants.LEFT);

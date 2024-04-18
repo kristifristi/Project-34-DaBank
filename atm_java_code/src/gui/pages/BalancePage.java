@@ -1,21 +1,19 @@
 package gui.pages;
 
-import gui.*;
 import gui.buttons.*;
-import com.fazecast.jSerialComm.SerialPortInvalidPortException;
-import gui.dialogs.TransactionDialog;
-import serial.ArduinoSerial;
+import gui.dialogs.CheckBalanceDialog;
 
-import javax.swing.*;
-import java.awt.*;
-
-public class BalancePage extends TransactionPage{
+public class BalancePage extends ServerCommPage {
     public static final String KEY = "BALANCEPAGE";
     public BalancePage() {
         super();
 
+        serverCommDialog = new CheckBalanceDialog();
+
+        page.add(titlePanel("Geld opnemen"));
         page.add(new StopTransactionButton().getButton());
         page.add(new BackButton(ChoicePage.KEY).getButton());
         page.add(new MainPageButton().getButton());
+        page.add(serverCommDialog.getDisplayText());
     }
 }
