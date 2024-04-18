@@ -1,5 +1,9 @@
 package gui.dialogs;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import gui.GUI;
+import server.BankingData;
 import server.GetInfo;
 
 import java.io.IOException;
@@ -9,7 +13,8 @@ public class CheckBalanceDialog extends ServerCommDialog{
     protected void comm(String rfid, String code) {
         String db = "";
         try {
-            db = GetInfo.get("http://145.24.223.74:8100/api/noob/accountinfo?iban=im00imdb0123456789&uid=FFFFFFFF&pin=" + code);
+            db = GetInfo.post("http://145.24.223.74:8100/api/accountinfo",
+                    "{\"target\": \"im00imdb0123456789\",\"pincode\":" + code + ",\"uid\": \"FFFFFFFF\"}");
         } catch (IOException e) {
             System.out.println("POTATOES");
         }
@@ -24,17 +29,12 @@ public class CheckBalanceDialog extends ServerCommDialog{
         else if (GetInfo.getStatus() == 200) {
             getDisplayText().setText(toString(db));
         }
+
     }
     private String toString(String json) {
-        json = json.replace("{", "");
-        json = json.replace("}", "");
-        json = json.replace("\"", "");
-        if (json.contains("firstname") && json.contains("lastname")) {
-            json = json.replace("firstname:","");
-            json = json.replace(",lastname:"," ");
-        }
-        json = json.replace(":",": ");
-        json = json.replace(",","<br>");
-        return "<html>" + json + "</html>";
+        Gson gson = new Gson();
+        BankingData a = gson.fromJson(json, BankingData.class);
+        return "<html>Naam: " + a.getFirstname() + ' ' + a.getLastname()
+                + "<br>Saldo: " + a.getBalance() + "<html/>";
     }
 }

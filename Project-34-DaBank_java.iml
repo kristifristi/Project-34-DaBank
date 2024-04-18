@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jSerialComm-2.10.4" level="project" />
+    <orderEntry type="library" name="google.code.gson" level="application" />
   </component>
 </module>

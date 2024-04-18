@@ -10,7 +10,7 @@ public class BalancePage extends ServerCommPage {
 
         serverCommDialog = new CheckBalanceDialog();
 
-        page.add(titlePanel("Geld opnemen"));
+        page.add(titlePanel("Saldo checken"));
         page.add(new StopTransactionButton().getButton());
         page.add(new BackButton(ChoicePage.KEY).getButton());
         page.add(new MainPageButton().getButton());

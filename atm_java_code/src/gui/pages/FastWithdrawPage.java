@@ -9,9 +9,9 @@ public class FastWithdrawPage extends ServerCommPage {
     public FastWithdrawPage() {
         super();
 
-        page.add(titlePanel("Geld opnemen"));
+        page.add(titlePanel("Snel geld opnemen"));
         page.add(new StopTransactionButton().getButton());
-        page.add(new BackButton(ChoicePage.KEY).getButton());
+        page.add(new BackButton(WithdrawPage.KEY).getButton());
         page.add(new MainPageButton().getButton());
     }
 }

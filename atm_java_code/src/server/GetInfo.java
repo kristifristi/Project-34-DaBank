@@ -8,13 +8,23 @@ import java.nio.charset.StandardCharsets;
 public class GetInfo {
     private static final String USER_AGENT = "BANK/DA";
     private static int status;
-    public static String post(String url, String json) throws IOException{
+    private static final String NOOBTOKEN;
+
+    static {
+        try {
+            NOOBTOKEN = new BufferedReader(new FileReader("resources/noobtoken.txt")).readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String post(String url, String json) throws IOException {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("User-Agent", USER_AGENT);
-        con.setRequestProperty("Content-Type", "application/json; charset=utf-8");
-        con.setRequestProperty("NOOB-TOKEN", "KAAAS");
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("NOOB-TOKEN", NOOBTOKEN);
         con.setDoOutput(true);
         con.setUseCaches(false);
 
@@ -38,7 +48,15 @@ public class GetInfo {
             return response.toString();
         }
         else {
-            System.out.println("No Cheese");
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getErrorStream(), "utf-8"));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+            System.out.println(response);
         }
         return "";
     }
@@ -47,7 +65,7 @@ public class GetInfo {
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
-        con.setRequestProperty("NOOB-TOKEN", "KAAAS");
+        con.setRequestProperty("NOOB-TOKEN", NOOBTOKEN);
 
         status = con.getResponseCode();
         System.out.println("Get response code: " + status);
