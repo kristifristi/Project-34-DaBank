@@ -1,96 +1,47 @@
 package gui.dialogs;
 
 import gui.BaseDialog;
-import serial.InputHandler;
-import server.GetInfo;
-
-import javax.swing.Timer;
-import java.io.IOException;
+import gui.dialogs.prosessors.KeypadProcessor;
+import gui.dialogs.prosessors.RfidProcessor;
 
 public abstract class ServerCommDialog extends BaseDialog {
     private String rfid = "";
-    private String code = "";
-    private final Timer checkRfid;
-    private final Timer checkKeypad;
-    private String text;
+    private String pin = "";
     public ServerCommDialog() {
         super((GUI_WIDTH/2-250),GUI_HEIGHT/2-100,500,200);
-        checkRfid = new Timer(100, e -> rfidAction());
-        checkRfid.stop();
-        checkRfid.setRepeats(false);
-        checkKeypad = new Timer(10, e -> keypadAction());
-        checkKeypad.stop();
-        checkKeypad.setRepeats(false);
     }
     public void startTransaction() {
-        //getDisplayText().setText("Scan uw pinpas");
-        //InputHandler.clearRfid();
-        //checkRfid.restart();
-        getCode();
-    }
+        Thread keypad = new Thread(new CreateDialog());
+        keypad.start();
+	}
     public void stopTransaction() {
-        checkRfid.stop();
-        checkKeypad.stop();
-        rfid = "";
-        code = "";
+        RfidProcessor.stopRfidScanner();
+        KeypadProcessor.stopKeypad();
     }
-    private void getCode() {
-        text = "Voer uw pincode in: ";
-        code = "";
-        getDisplayText().setText(text);
-        InputHandler.setDataNew(false);
-        checkKeypad.restart();
-    }
-    private void rfidAction() {
-        if (InputHandler.isNewData()) {
-            if (InputHandler.getRfid().length() > 7) {
-                rfid = InputHandler.getRfid();
-                InputHandler.setDataNew(false);
-                checkRfid.stop();
-                getCode();
-            }
+    protected abstract void comm(String rfid, String code);
+
+    protected class CreateDialog implements Runnable {
+        @Override
+        public void run() {
+
+            // rfid reader
+//            RfidProcessor rfidProcessor = new RfidProcessor(getDisplayText());
+//            rfid = rfidProcessor.getRfid();
+//            if (rfid != null) System.out.println(rfid);
+//            else {
+//                System.out.println("Could not get rfid.");
+//                return;
+//            }
+
+            // keypad
+            KeypadProcessor keypadProcessor = new KeypadProcessor(getDisplayText());
+            pin = keypadProcessor.getPinCode();
+            if (pin != null) System.out.println(pin);
             else {
-                checkRfid.restart();
-                System.out.println("Ping");
+                System.out.println("Could not get pin.");
+                return;
             }
-        }
-        else checkRfid.restart();
-    }
-    private void keypadAction() {
-        if (InputHandler.isNewData()) {
-            if (InputHandler.getKeyPress() != 'K') {
-                code = processInput(InputHandler.getKeyPress());
-                System.out.println("TransactionDialog: " + code);
-                InputHandler.setDataNew(false);
-                checkKeypad.restart();
-                text = "Voer uw pincode in: ";
-                for (int i = 0; i < code.length(); i++) text += '*';
-                getDisplayText().setText(text);
-            }
-            else {
-                if (code.length() < 4) {
-                    checkKeypad.restart();
-                    return;
-                }
-                checkKeypad.stop();
-                comm(rfid,code);
-                System.out.println("ServerCommDialog l77");
-            }
-        }
-        else checkKeypad.restart();
-    }
-    protected abstract void comm(String rfid,String code);
-    private String processInput(char input) {
-        switch (input) {
-            case '/': return code;
-            case 'D': if (!code.isEmpty()) {
-                return code.substring(0,code.length() - 1);
-            }
-            case 'C': return "";
-            default: if (code.length() < 6) {
-                code += input;
-            }
-            return code;
+            comm(rfid, pin);
         }
     }
 }

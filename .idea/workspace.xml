@@ -5,35 +5,481 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27fc7e7c-74a1-42f0-b896-901420a44c71" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/FastWithdrawDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/atm_java_code/src/gui/pages/FastWithdrawDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/.package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-property-descriptors/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-proto/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-proto/test/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/.nycrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/shams.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/test/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/test/shams/core-js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/test/shams/get-own-property-symbols.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/has-symbols/test/tests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/.nycrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/hasown/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/http-errors/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/http-errors/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/http-errors/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/http-errors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/http-errors/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/Changelog.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/dbcs-codec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/dbcs-data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/internal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/sbcs-codec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/sbcs-data-generated.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/sbcs-data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/tables/big5-added.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/tables/cp936.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/tables/cp949.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/tables/cp950.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/tables/eucjp.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/tables/gbk-added.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/tables/shiftjis.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/utf16.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/encodings/utf7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/lib/bom-handling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/lib/extend-node.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/lib/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/lib/streams.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/iconv-lite/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/inherits/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/inherits/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/inherits/inherits.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/inherits/inherits_browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/inherits/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ipaddr.js/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ipaddr.js/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ipaddr.js/ipaddr.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ipaddr.js/lib/ipaddr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ipaddr.js/lib/ipaddr.js.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ipaddr.js/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/is-property/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/is-property/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/is-property/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/is-property/is-property.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/is-property/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/long/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/long/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/long/dist/long.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/long/dist/long.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/long/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/long/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/long/src/long.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/lru-cache/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/lru-cache/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/lru-cache/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/lru-cache/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/media-typer/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/media-typer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/media-typer/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/media-typer/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/media-typer/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/merge-descriptors/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/merge-descriptors/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/merge-descriptors/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/merge-descriptors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/merge-descriptors/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/methods/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/methods/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/methods/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/methods/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-db/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-db/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-db/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-db/db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-db/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-db/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-types/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-types/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-types/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-types/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime-types/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/cli.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/mime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/src/build.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/src/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mime/types.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ms/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ms/license.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ms/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/ms/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/License" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/auth_41.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/auth_plugins/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/auth_plugins/mysql_native_password.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/auth_plugins/sha256_password.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/auth_switch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/binlog_dump.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/change_user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/client_handshake.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/close_statement.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/command.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/execute.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/ping.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/prepare.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/query.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/quit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/register_slave.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/commands/server_handshake.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/compressed_protocol.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/connection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/connection_config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/charset_encodings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/charsets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/commands.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/cursor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/encoding_charset.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/errors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/field_flags.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/server_status.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/session_track.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/ssl_profiles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/constants/types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/helpers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packet_parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/auth_switch_request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/auth_switch_request_more_data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/auth_switch_response.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/binary_row.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/binlog_dump.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/binlog_query_statusvars.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/change_user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/close_statement.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/column_definition.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/execute.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/handshake.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/handshake_response.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/packet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/prepare_statement.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/prepared_statement_header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/query.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/register_slave.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/resultset_header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/ssl_request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/packets/text_row.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/parsers/binary_parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/parsers/parser_cache.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/parsers/string.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/parsers/text_parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/pool.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/pool_cluster.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/pool_config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/pool_connection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/results_stream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/lib/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/.github/dependabot.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/.idea/iconv-lite.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/Changelog.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/dbcs-codec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/dbcs-data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/internal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/sbcs-codec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/sbcs-data-generated.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/sbcs-data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/tables/big5-added.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/tables/cp936.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/tables/cp949.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/tables/cp950.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/tables/eucjp.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/tables/gbk-added.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/tables/shiftjis.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/utf16.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/utf32.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/encodings/utf7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/lib/bom-handling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/lib/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/lib/streams.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/node_modules/iconv-lite/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/promise.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/promise.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/Connection.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/Pool.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/PoolCluster.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/PoolConnection.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/protocol/packets/Field.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/protocol/packets/FieldPacket.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/protocol/packets/OkPacket.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/protocol/packets/ResultSetHeader.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/protocol/packets/RowDataPacket.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/protocol/packets/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/protocol/sequences/Query.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/mysql2/typings/mysql/lib/protocol/sequences/Sequence.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/node_modules/lru-cache/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/node_modules/lru-cache/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/node_modules/lru-cache/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/node_modules/lru-cache/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/node_modules/lru-cache/index.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/node_modules/lru-cache/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/named-placeholders/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/lib/charset.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/lib/encoding.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/lib/language.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/lib/mediaType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/negotiator/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-assign/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-assign/license" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-assign/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-assign/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/.nycrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/example/all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/example/circular.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/example/fn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/example/inspect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/package-support.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/readme.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test-core-js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/bigint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/browser/dom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/circular.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/deep.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/element.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/err.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/fakes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/fn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/global.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/has.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/holes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/indent-option.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/inspect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/lowbyte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/number.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/quoteStyle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/toStringTag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/undef.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/test/values.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/object-inspect/util.inspect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/on-finished/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/on-finished/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/on-finished/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/on-finished/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/on-finished/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/parseurl/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/parseurl/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/parseurl/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/parseurl/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/parseurl/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/path-to-regexp/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/path-to-regexp/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/path-to-regexp/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/path-to-regexp/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/path-to-regexp/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/proxy-addr/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/proxy-addr/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/proxy-addr/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/proxy-addr/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/proxy-addr/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/.nycrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/dist/qs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/lib/formats.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/lib/parse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/lib/stringify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/lib/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/test/parse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/test/stringify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/qs/test/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/range-parser/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/range-parser/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/range-parser/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/range-parser/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/range-parser/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/raw-body/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/raw-body/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/raw-body/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/raw-body/SECURITY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/raw-body/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/raw-body/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/raw-body/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safe-buffer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safe-buffer/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safe-buffer/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safe-buffer/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safe-buffer/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safer-buffer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safer-buffer/Porting-Buffer.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safer-buffer/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safer-buffer/dangerous.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safer-buffer/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safer-buffer/safer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/safer-buffer/tests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/SECURITY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/node_modules/ms/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/node_modules/ms/license.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/node_modules/ms/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/node_modules/ms/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/send/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/lib/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/lib/seq-queue.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/seq-queue/test/seq-queue-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/serve-static/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/serve-static/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/serve-static/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/serve-static/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/serve-static/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/.nycrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/env.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/set-function-length/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/setprototypeof/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/setprototypeof/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/setprototypeof/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/setprototypeof/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/setprototypeof/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/setprototypeof/test/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/.eslintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/.nycrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/test/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/side-channel/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/sqlstring/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/sqlstring/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/sqlstring/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/sqlstring/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/sqlstring/lib/SqlString.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/sqlstring/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/statuses/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/statuses/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/statuses/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/statuses/codes.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/statuses/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/statuses/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/toidentifier/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/toidentifier/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/toidentifier/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/toidentifier/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/toidentifier/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/type-is/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/type-is/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/type-is/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/type-is/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/type-is/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/unpipe/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/unpipe/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/unpipe/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/unpipe/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/unpipe/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/utils-merge/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/utils-merge/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/utils-merge/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/utils-merge/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/utils-merge/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/vary/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/vary/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/vary/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/vary/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/vary/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/yallist/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/yallist/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/yallist/iterator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/yallist/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiwork/node_modules/yallist/yallist.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arduino_code/arduino_code.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atm_java_code/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atm_java_code/.idea/artifacts/ProjectDaBank_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atm_java_code/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atm_java_code/ProjectDaBank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/ProjectDaBank.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atm_java_code/resources/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/resources/home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atm_java_code/src/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/CheckBalanceDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/CheckBalanceDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/WithdrawDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/gui/dialogs/WithdrawDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BaseButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BaseDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/BasePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/GUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/BackButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/BalanceButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/FastWithdrawButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/MainPageButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/StopTransactionButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/buttons/WithdrawButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/dialogs/CheckBalanceDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/dialogs/ServerCommDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/dialogs/WithdrawDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/BalancePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/ChoicePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/Eindscherm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/FastWithdrawPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/HomePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/ServerCommPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/gui/pages/WithdrawPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/serial/ArduinoHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/serial/ArduinoSerial.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/serial/InputHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/server/BankingData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-34-DaBank_java/server/GetInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/atm_java_code/src/gui/pages/FastWithdrawPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/atm_java_code/src/gui/pages/FastWithdrawPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,44 +508,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "true",
-    "Repository.Attach.JavaDocs": "true",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "java__atm",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/joram/nextcloud/school/semester3/prjct/Git/Project-34-DaBank_java/atm_java_code",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.2210145",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;java__atm&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/joram/nextcloud/school/semester3/prjct/Git/Project-34-DaBank_java/atm_java_code&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.2210145&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Project-34-DaBank_java" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/atm_java_code" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Project-34-DaBank_java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Project-34-DaBank_java" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

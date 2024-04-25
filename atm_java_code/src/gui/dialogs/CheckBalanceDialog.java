@@ -1,8 +1,6 @@
 package gui.dialogs;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import gui.GUI;
 import server.BankingData;
 import server.GetInfo;
 
@@ -16,7 +14,7 @@ public class CheckBalanceDialog extends ServerCommDialog{
             db = GetInfo.post("http://145.24.223.74:8100/api/accountinfo",
                     "{\"target\": \"im00imdb0123456789\",\"pincode\":" + code + ",\"uid\": \"FFFFFFFF\"}");
         } catch (IOException e) {
-            System.out.println("POTATOES");
+            System.out.println("Balance check went wrong");
         }
         if (GetInfo.getStatus() >= 500) {
             System.out.println("server error");
@@ -29,7 +27,6 @@ public class CheckBalanceDialog extends ServerCommDialog{
         else if (GetInfo.getStatus() == 200) {
             getDisplayText().setText(toString(db));
         }
-
     }
     private String toString(String json) {
         Gson gson = new Gson();

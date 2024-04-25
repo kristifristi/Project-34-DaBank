@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="ProjectDaBank:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/ProjectDaBank_jar</output-path>
-    <root id="archive" name="ProjectDaBank.jar">
-      <element id="module-output" name="ProjectDaBank" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/jSerialComm-2.10.4.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
