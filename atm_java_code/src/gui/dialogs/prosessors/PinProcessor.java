@@ -4,13 +4,13 @@ import serial.InputHandler;
 
 import javax.swing.*;
 
-public class KeypadProcessor {
+public class PinProcessor {
 	private volatile char keypress;
 	private final JLabel display;
 	private static final String TEXT = "Voer uw pincode in: ";
 	private String pin;
 	private static volatile boolean going;
-	public KeypadProcessor(JLabel display) {
+	public PinProcessor(JLabel display) {
 		this.display = display;
 
 		going = true;

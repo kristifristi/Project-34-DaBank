@@ -8,7 +8,6 @@ public class RfidProcessor {
 	private volatile String rfid;
 	private final JLabel display;
 	private static final String TEXT = "Scan uw pinpas.";
-	private String pin;
 	private static volatile boolean going;
 	public RfidProcessor(JLabel display) {
 		this.display = display;
@@ -26,25 +25,25 @@ public class RfidProcessor {
 			keyProducer.join();
 		} catch (InterruptedException e) {
 			System.out.println(e.getMessage());
-			System.out.println(pin);
+			System.out.println(this.rfid);
 		}
 	}
 	public String getRfid() {
-		return pin;
+		return rfid;
 	}
 	public static void stopRfidScanner() {
 		going = false;
 	}
 	private void rfidConsume() throws InterruptedException {
-		String rfid = "";
 		while (true) {
 			synchronized (this) {
 				if (!going) throw new InterruptedException();
 				display.setText(TEXT);
 				wait();
 				if (!going) throw new InterruptedException();
-				if (this.rfid.contains("a")) { //TODO
+				if (rfid.contains("a")) { //TODO
 					System.out.println("TransactionDialog: " + rfid);
+					going = false;
 					throw new InterruptedException(rfid);
 				}
 			}
@@ -75,9 +74,9 @@ public class RfidProcessor {
 			try {
 				rfidConsume();
 			} catch (InterruptedException e) {
-				System.out.println("KeyConsumer stopped.");
+				System.out.println("RFidConsumer stopped.");
 				going = false;
-				pin = e.getMessage();
+				rfid = e.getMessage();
 			}
 		}
 	}
@@ -88,7 +87,7 @@ public class RfidProcessor {
 				rfidProduce();
 			} catch (InterruptedException ignored) {}
 			finally {
-				System.out.println("KeyProducer stopped.");
+				System.out.println("RFidProducer stopped.");
 			}
 		}
 	}

@@ -38,6 +38,7 @@ public abstract class GUI {
         pages.put(ChoicePage.KEY,new ChoicePage());
         pages.put(BalancePage.KEY,new BalancePage());
         pages.put(FastWithdrawPage.KEY,new FastWithdrawPage());
+        pages.put(CustomWithdrawPage.KEY,new CustomWithdrawPage());
         pages.put(WithdrawPage.KEY,new WithdrawPage());
         pages.put(Eindscherm.KEY,new Eindscherm());
 
