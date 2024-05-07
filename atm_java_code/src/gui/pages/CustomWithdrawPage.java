@@ -15,7 +15,7 @@ public class CustomWithdrawPage extends ServerCommPage {
 
         serverCommDialog = new CustomWithdrawDialog();
 
-        page.add(titlePanel("Snel geld opnemen"));
+        page.add(titlePanel("Zelf briefjes kiezen"));
         page.add(new StopTransactionButton().getButton());
         page.add(new BackButton(WithdrawPage.KEY).getButton());
         page.add(new MainPageButton().getButton());

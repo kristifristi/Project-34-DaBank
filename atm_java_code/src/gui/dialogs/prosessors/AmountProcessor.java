@@ -44,7 +44,6 @@ public class AmountProcessor {
                 wait();
                 if (keypress != 'K') {
                     amount = processInput(amount, keypress);
-                    System.out.println("TransactionDialog: " + amount);
                 }
                 else {
                     if (amount.isEmpty()) continue;
@@ -92,7 +91,6 @@ public class AmountProcessor {
             try {
                 keyConsume();
             } catch (InterruptedException e) {
-                System.out.println("KeyConsumer stopped.");
                 going = false;
                 try {
                     amount = Integer.parseInt(e.getMessage());
@@ -108,9 +106,6 @@ public class AmountProcessor {
             try {
                 keyProduce();
             } catch (InterruptedException ignored) {}
-            finally {
-                System.out.println("KeyProducer stopped.");
-            }
         }
     }
 }

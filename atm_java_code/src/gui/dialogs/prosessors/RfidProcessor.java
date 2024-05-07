@@ -74,7 +74,6 @@ public class RfidProcessor {
 			try {
 				rfidConsume();
 			} catch (InterruptedException e) {
-				System.out.println("RFidConsumer stopped.");
 				going = false;
 				rfid = e.getMessage();
 			}
@@ -86,9 +85,6 @@ public class RfidProcessor {
 			try {
 				rfidProduce();
 			} catch (InterruptedException ignored) {}
-			finally {
-				System.out.println("RFidProducer stopped.");
-			}
 		}
 	}
 }

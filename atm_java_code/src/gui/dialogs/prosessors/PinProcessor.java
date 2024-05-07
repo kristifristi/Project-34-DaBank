@@ -45,7 +45,6 @@ public class PinProcessor {
 				wait();
 				if (keypress != 'K') {
 					pin = processInput(pin, keypress);
-					System.out.println("TransactionDialog: " + pin);
 					blurryPin.setLength(0);
 					blurryPin.append("*".repeat(pin.length()));
 				}
@@ -95,7 +94,6 @@ public class PinProcessor {
 			try {
 				keyConsume();
 			} catch (InterruptedException e) {
-				System.out.println("KeyConsumer stopped.");
 				going = false;
 				pin = e.getMessage();
 			}
@@ -107,9 +105,6 @@ public class PinProcessor {
 			try {
 				keyProduce();
 			} catch (InterruptedException ignored) {}
-			finally {
-				System.out.println("KeyProducer stopped.");
-			}
 		}
 	}
 }

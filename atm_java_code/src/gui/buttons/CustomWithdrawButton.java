@@ -9,7 +9,7 @@ public class CustomWithdrawButton extends BaseButton {
     public CustomWithdrawButton() {
         super();
         button.setLocation(RIGHT,Y_POS(2));
-        button.setText("Snel opnemen");
+        button.setText("Zelf briefjes kiezen");
         button.addActionListener(e -> GUI.gotoPage(CustomWithdrawPage.KEY));
     }
 }

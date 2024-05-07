@@ -1,6 +1,7 @@
 package gui.dialogs;
 
 import gui.BaseDialog;
+import gui.dialogs.prosessors.AmountProcessor;
 import gui.dialogs.prosessors.PinProcessor;
 import gui.dialogs.prosessors.RfidProcessor;
 
@@ -15,6 +16,7 @@ public abstract class ServerCommDialog extends BaseDialog {
     public void stopTransaction() {
         RfidProcessor.stopRfidScanner();
         PinProcessor.stopKeypad();
+        AmountProcessor.stopKeypad();
     }
     protected abstract void startUp();
 

@@ -21,7 +21,12 @@ public class CustomWithdrawDialog extends ServerCommDialog {
                 System.out.println("Pinrequest went wrong");
             }
             if (GetInfo.getStatus() == 200) {
+                getDisplayText().setText("Transactie succes");
                 System.out.println("OK");
+            }
+            else if (GetInfo.getStatus() == 412) {
+                System.out.println("No balance");
+                getDisplayText().setText("Onvoldoende saldo");
             }
             else {
                 System.out.println("NO GO");
