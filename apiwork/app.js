@@ -26,6 +26,10 @@ function validateIban(iban){
     return valid.test(iban);
 }
 
+function bankID(iban){
+    return iban.substring(4,8);
+}
+
 function tokenCheck(headers){
     if(headers['noob-token']){
         if(headers['noob-token'] == noobtoken){
@@ -41,8 +45,10 @@ app.get('/api/noob/health', (req, res) => {
 
 function infoApi (req,res) {   
     let body = req.body
+    console.log(req.headers);
     if(!tokenCheck(req.headers)){
         res.status(401).send("request not authorised with noob-token");
+        return;
     }
     if(!body.target){
         res.status(400).send("missing iban");
@@ -93,9 +99,11 @@ function infoApi (req,res) {
         }
         if(result.expired){
             res.status(403).send("card expired");
+            return;
         }
         if(result.chances <= 0){
             res.status(403).send("card blocked after too many attempts");
+            return;
         }
 
         let genHash = sha256Stringify(body.uid,body.pincode.toString());
@@ -105,6 +113,7 @@ function infoApi (req,res) {
             return;
         }
 
+        sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = 0 where idCard = "${result.idCard}"`, (results) => {});
         res.status(200).json({ 
         'firstname' : result.fName,
         'lastname' : result.lName,
@@ -114,11 +123,25 @@ function infoApi (req,res) {
 };
 
 app.post('/api/accountinfo', infoApi);
+app.post('/endme/accountinfo', (req,res) => {
+    if(!tokenCheck(req.headers)){
+        res.status(401).send("go away");
+        return;
+    }
+    if(ibanID(req.body.target) == "IMDB"){
+        infoApi(req, res);
+        return;
+    }
+
+
+
+});
 
 function withdrawApi (req,res) {
     let body = req.body
     if(!tokenCheck(req.headers)){
         res.status(401).send("request not authorised with noob-token");
+        return;
     }
     if(!body.target){
         res.status(400).send("missing iban");
@@ -183,7 +206,7 @@ function withdrawApi (req,res) {
             res.status(403).send("card blocked after too many attempts");
             return;
         }
-        if(result.maxRed >= result.balance - req.body.amount){
+        if(result.maxRed > result.balance - body.amount){
             res.status(412).send("account balance too low");
             return;
         }
@@ -200,12 +223,14 @@ function withdrawApi (req,res) {
             return;
         });
         sql.dbquery(sql.realpool, `update Account set balance = balance - ${req.body.amount} where idAccount = ${result.idAccount}`, (results) => {});
+        sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = 0 where idCard = "${result.idCard}"`, (results) => {});
         res.status(200).send();
         return;
     });
 }
 
 app.post('/api/withdraw', withdrawApi);
+app.post('/api/noob/accountinfo', infoApi);
 
 
 app.listen(8100, () =>{
