@@ -1,10 +1,12 @@
 package gui.dialogs;
 
+import com.google.gson.Gson;
 import gui.GUI;
 import gui.dialogs.prosessors.AmountProcessor;
 import gui.dialogs.prosessors.PinProcessor;
 import gui.dialogs.prosessors.RfidProcessor;
 import gui.pages.HomePage;
+import server.BankingData;
 import server.GetInfo;
 
 import java.io.IOException;
@@ -26,6 +28,13 @@ public class FastWithdrawDialog extends ServerCommDialog {
             else if (GetInfo.getStatus() == 412) {
                 System.out.println("No balance");
                 getDisplayText().setText("Onvoldoende saldo");
+            }
+            else if (GetInfo.getStatus() == 403) {
+                getDisplayText().setText("Pas geblokkeerd");
+            }
+            else if (GetInfo.getStatus() == 401) {
+                getDisplayText().setText("<html>Foute pincode<br>Pogingen resterend:"
+                        + getAttempts(db) + "</html>");
             }
             else {
                 System.out.println("NO GO");

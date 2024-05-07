@@ -1,9 +1,11 @@
 package gui.dialogs;
 
+import com.google.gson.Gson;
 import gui.BaseDialog;
 import gui.dialogs.prosessors.AmountProcessor;
 import gui.dialogs.prosessors.PinProcessor;
 import gui.dialogs.prosessors.RfidProcessor;
+import server.BankingData;
 
 public abstract class ServerCommDialog extends BaseDialog {
     public ServerCommDialog() {
@@ -25,5 +27,10 @@ public abstract class ServerCommDialog extends BaseDialog {
         public void run() {
             startUp();
         }
+    }
+    protected int getAttempts(String json) {
+        Gson gson = new Gson();
+        BankingData a = gson.fromJson(json, BankingData.class);
+        return a.getAttempts_remaining();
     }
 }

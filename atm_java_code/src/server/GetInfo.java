@@ -57,8 +57,8 @@ public class GetInfo {
             }
             in.close();
             System.out.println(response);
+            return response.toString();
         }
-        return "";
     }
     public static String get(String url) throws IOException {
         URL obj = new URL(url);

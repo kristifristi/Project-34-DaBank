@@ -28,6 +28,13 @@ public class CustomWithdrawDialog extends ServerCommDialog {
                 System.out.println("No balance");
                 getDisplayText().setText("Onvoldoende saldo");
             }
+            else if (GetInfo.getStatus() == 403) {
+                getDisplayText().setText("Pas geblokkeerd");
+            }
+            else if (GetInfo.getStatus() == 401) {
+                getDisplayText().setText("<html>Foute pincode<br>Pogingen resterend:"
+                        + getAttempts(db) + "</html>");
+            }
             else {
                 System.out.println("NO GO");
                 GUI.gotoPage(HomePage.KEY); // TODO

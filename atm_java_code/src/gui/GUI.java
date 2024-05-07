@@ -15,7 +15,7 @@ public abstract class GUI {
     private static final HashMap<String, BasePage> pages = new HashMap<>();
     protected static int width;
     protected static int height;
-    private static Timer timeOut = new Timer(120000, e -> timeoutAction());
+    private static Timer timeOut = new Timer(60000, e -> timeoutAction());
     private static ArduinoSerial arduino;
 
     public static void makeGUI() {
