@@ -23,25 +23,11 @@ public class CheckBalanceDialog extends ServerCommDialog{
         } catch (IOException e) {
             System.out.println("Balance check went wrong");
         }
-        if (GetInfo.getStatus() >= 500) {
-            System.out.println("server error");
-            getDisplayText().setText("<html>Servers niet beschikbaar<br/>Excuses voor het ongemak</html>");
-        }
-        else if (GetInfo.getStatus() == 403) {
-            getDisplayText().setText("Pas geblokkeerd");
-        }
-        else if (GetInfo.getStatus() == 401) {
-            getDisplayText().setText("<html>Foute pincode<br>Pogingen resterend:"
-                    + getAttempts(db) + "</html>");
-        }
-        else if (GetInfo.getStatus() >= 400) {
-            System.out.println("client error");
-            getDisplayText().setText("<html>Er ging iets fout<br/>Excuses voor het ongemak</html>");
-        }
-        else if (GetInfo.getStatus() == 200) {
+        if (GetInfo.getStatus() == 200) {
             getDisplayText().setText(toString(db));
             receiptDialog.setVisible(true);
         }
+        else handleServerResponseNotOK(db);
 
     }
     private String toString(String json) {

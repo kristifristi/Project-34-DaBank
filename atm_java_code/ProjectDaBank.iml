@@ -11,7 +11,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jSerialComm-2.10.4" level="application" />
     <orderEntry type="library" name="jSerialComm-2.10.4" level="application" />
-    <orderEntry type="library" name="google.code.gson" level="project" />
     <orderEntry type="library" name="fazecast.jSerialComm" level="project" />
+    <orderEntry type="library" name="google.code.gson" level="application" />
   </component>
 </module>
