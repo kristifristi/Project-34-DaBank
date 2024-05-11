@@ -1,16 +1,17 @@
 package gui.dialogs;
 
-import com.google.gson.Gson;
-import gui.GUI;
-import gui.dialogs.prosessors.AmountProcessor;
+
+import gui.dialogs.prosessors.CustomBillsProcessor;
 import gui.dialogs.prosessors.PinProcessor;
-import gui.pages.HomePage;
-import server.BankingData;
 import server.GetInfo;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class CustomWithdrawDialog extends ServerCommDialog {
+    public CustomWithdrawDialog() {
+        super(300);
+    }
     protected void comm(String rfid, String code, int amount) {
         if (amount > 1) {
             String db = "";
@@ -31,11 +32,12 @@ public class CustomWithdrawDialog extends ServerCommDialog {
     protected void startUp() {
 
         // amount
-        int amount;
-        AmountProcessor amountProcessor = new AmountProcessor(getDisplayText());
-        amount = amountProcessor.getAmount();
-        if (amount > 0) System.out.println(amount);
-        else {
+        int[] amounts;
+        CustomBillsProcessor customBillsProcessor = new CustomBillsProcessor(getDisplayText());
+        amounts = customBillsProcessor.getAmounts();
+        if (!Arrays.stream(amounts).allMatch(i -> i == 0)) {
+			System.out.println(Arrays.toString(amounts));
+		} else {
             System.out.println("Couldn't get amount.");
             return;
         }
@@ -59,6 +61,13 @@ public class CustomWithdrawDialog extends ServerCommDialog {
             System.out.println("Could not get pin.");
             return;
         }
-        comm(rfid, pin, amount);
+        comm(rfid, pin, getTotal(amounts));
+    }
+    private int getTotal(int[] amounts) {
+        int total = 0;
+        for (int amount : amounts) {
+            total += amount;
+        }
+        return total;
     }
 }

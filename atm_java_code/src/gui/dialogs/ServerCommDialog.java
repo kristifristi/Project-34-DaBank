@@ -3,6 +3,7 @@ package gui.dialogs;
 import com.google.gson.Gson;
 import gui.BaseDialog;
 import gui.dialogs.prosessors.AmountProcessor;
+import gui.dialogs.prosessors.CustomBillsProcessor;
 import gui.dialogs.prosessors.PinProcessor;
 import gui.dialogs.prosessors.RfidProcessor;
 import server.BankingData;
@@ -12,6 +13,9 @@ public abstract class ServerCommDialog extends BaseDialog {
     public ServerCommDialog() {
         super((GUI_WIDTH/2-250),GUI_HEIGHT/2-100,500,200);
     }
+    public ServerCommDialog(int height) {
+        super((GUI_WIDTH/2-250),GUI_HEIGHT/2-(height/2),500,height);
+    }
     public void startTransaction() {
         Thread keypad = new Thread(new CreateDialog());
         keypad.start();
@@ -20,6 +24,7 @@ public abstract class ServerCommDialog extends BaseDialog {
         RfidProcessor.stopRfidScanner();
         PinProcessor.stopKeypad();
         AmountProcessor.stopKeypad();
+        CustomBillsProcessor.stopKeypad();
     }
     protected abstract void startUp();
     protected class CreateDialog implements Runnable {

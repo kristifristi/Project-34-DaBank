@@ -1,12 +1,9 @@
 package gui.pages;
 
-import gui.BasePage;
 import gui.buttons.BackButton;
-import gui.buttons.FastWithdrawButton;
 import gui.buttons.MainPageButton;
 import gui.buttons.StopTransactionButton;
 import gui.dialogs.CustomWithdrawDialog;
-import gui.dialogs.FastWithdrawDialog;
 
 public class CustomWithdrawPage extends ServerCommPage {
     public static final String KEY = "CUSTOMWITHDRAWPAGE"; // Correct key for WithdrawPage
