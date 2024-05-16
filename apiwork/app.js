@@ -137,6 +137,8 @@ app.post('/endme/accountinfo', (req,res) => {
 
 });
 
+
+
 function withdrawApi (req,res) {
     let body = req.body
     if(!tokenCheck(req.headers)){
@@ -159,6 +161,11 @@ function withdrawApi (req,res) {
         res.status(400).send("missing amount");
         return;
     }
+    let int = parseInt(req.body.amount)
+    if(!int && int != 0){
+        res.status(400).send("amount is not a number");
+        return;
+    }
 
     if(sql.hasInjection(body.uid)){
         console.log("injection attempt! attacker info: ");
@@ -168,6 +175,10 @@ function withdrawApi (req,res) {
         res.status(418).send("you think you're smart don't you?");
         return;
     }
+
+
+
+
     sql.dbquery(sql.realpool,`select Card.hash as hash, Card.idCard as idCard,  
         Account.balance as balance, Account.IBAN as iban, 
         Card.maxWrongAttempts - Card.wrongAttemptsDone as chances,
@@ -215,23 +226,41 @@ function withdrawApi (req,res) {
         if(genHash != result.hash){
             res.status(401).json({"attempts_remaining" : result.chances});
             sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = wrongAttemptsDone + 1 where idCard = ${result.idCard}`, (results) => {});
+        }
+
+        //make sure client knows if something went wrong
+        let dberror = false;
+        function handleDBError(results){
+            if(results.error){
+                console.log("AAA sending 500")
+                res.status(500).send("internal database error");
+                dberror = true
+            }
             return;
         }
+        
         sql.dbquery(sql.realpool, `insert into TransactionLog value
-        (null,CURRENT_TIME,"${result.iban}","${ourIban}",${req.body.amount},"${req.ip}",${result.idCard})`,(results) => {
-            console.log(results);
+        (null,CURRENT_TIME,"${result.iban}","${ourIban}",${req.body.amount},"${req.ip}",${result.idCard})`,handleDBError);
+        if(dberror){
             return;
-        });
-        sql.dbquery(sql.realpool, `update Account set balance = balance - ${req.body.amount} where idAccount = ${result.idAccount}`, (results) => {});
-        sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = 0 where idCard = "${result.idCard}"`, (results) => {});
-        res.status(200).send();
+        }
+        sql.dbquery(sql.realpool, `update Account set balance = balance - ${req.body.amount} where idAccount = ${result.idAccount}`, handleDBError);
+        if(dberror){
+            return;
+        }
+        sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = 0 where idCard = "${result.idCard}"`, handleDBError);
+        if(!dberror){
+            res.status(200).send();
+        }
         return;
     });
 }
 
 app.post('/api/withdraw', withdrawApi);
-app.post('/api/noob/accountinfo', infoApi);
 
+app.use('/api', (req,res) => {
+    res.status(400).send("non-existent endpoint");
+})
 
 app.listen(8100, () =>{
     console.log("AAAAAAAAAAAAAAAA I LIVE");
