@@ -40,7 +40,6 @@ function dbquery(usingPool, querystring, callbackfunc){
               callbackfunc({'error' : err});
               return;
             }
-            console.log("successful query of " + querystring);
             callbackfunc(results);
             return;
         })

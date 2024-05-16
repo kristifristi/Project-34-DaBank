@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+
+
 const sql = require("./sqlqueries");
 
 const noobtoken = require("./envparse").noobtoken;
@@ -18,7 +20,7 @@ app.use(cors());
 //cargo cult programming
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(express.raw());
+app.use(express.text());
 
 //imagine actually validating iban
 function validateIban(iban){
@@ -39,13 +41,31 @@ function tokenCheck(headers){
     return false;
 }
 
+app.all("*", (req,res,next) => {
+    let string = `ip: ${req.ip}
+    url: ${req.url}
+    headers:
+    ${JSON.stringify(req.headers)}
+    body:
+    ${req.body}
+    ${JSON.stringify(req.body)}
+    `
+
+    fs.appendFile("./logfile",string,(err) => {
+        if(err){
+            console.log(err);
+        }
+    });
+    next();
+    return;
+});
+
 app.get('/api/noob/health', (req, res) => {
     res.json({"status": "chillin"});
 });
 
 function infoApi (req,res) {   
     let body = req.body
-    console.log(req.headers);
     if(!tokenCheck(req.headers)){
         res.status(401).send("request not authorised with noob-token");
         return;
@@ -67,7 +87,7 @@ function infoApi (req,res) {
         console.log("injection attempt! attacker info: ");
         console.log(req.ip);
         console.log(body);
-        console.log(req.headers)
+        console.log(req.headers);
         res.status(418).send("you think you're smart don't you?");
         return;
     }
@@ -191,7 +211,6 @@ function withdrawApi (req,res) {
         }
 
         let result = results[0];
-        console.log(results);
         if(!result){
             res.status(404).send("uid not recognized");
             return;
@@ -240,7 +259,6 @@ function withdrawApi (req,res) {
             return new Promise((resolve, reject) => {
                 sql.dbquery(sql.realpool, `update Account set balance = balance - ${intAmount} where idAccount = ${result.idAccount}`, (results) => {
                     if(results.error){
-                        console.log("KILLLLLL");
                         reject("database error");
                     } else {
                         resolve("yippee!")
@@ -272,8 +290,18 @@ app.post('/api/withdraw', withdrawApi);
 
 app.use('/api', (req,res) => {
     res.status(400).send("non-existent endpoint");
-})
-
-app.listen(8100, () =>{
-    console.log("AAAAAAAAAAAAAAAA I LIVE");
 });
+
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
+const bodyParser = require("body-parser");
+var privateKey  = fs.readFileSync('sslcert/key.pem', 'utf8');
+var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate};
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(8100);
+httpsServer.listen(8001);
