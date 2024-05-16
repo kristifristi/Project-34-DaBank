@@ -161,8 +161,8 @@ function withdrawApi (req,res) {
         res.status(400).send("missing amount");
         return;
     }
-    let int = parseInt(req.body.amount)
-    if(!int && int != 0){
+    let intAmount = parseInt(req.body.amount)
+    if(!intAmount && intAmount != 0){
         res.status(400).send("amount is not a number");
         return;
     }
@@ -175,8 +175,6 @@ function withdrawApi (req,res) {
         res.status(418).send("you think you're smart don't you?");
         return;
     }
-
-
 
 
     sql.dbquery(sql.realpool,`select Card.hash as hash, Card.idCard as idCard,  
@@ -217,7 +215,7 @@ function withdrawApi (req,res) {
             res.status(403).send("card blocked after too many attempts");
             return;
         }
-        if(result.maxRed > result.balance - body.amount){
+        if(result.maxRed > result.balance - intAmount){
             res.status(412).send("account balance too low");
             return;
         }
@@ -229,29 +227,43 @@ function withdrawApi (req,res) {
         }
 
         //make sure client knows if something went wrong
-        let dberror = false;
-        function handleDBError(results){
+        const DBpromise = new Promise((resolve, reject) => {
+            sql.dbquery(sql.realpool, `insert into TransactionLog value (null,CURRENT_TIME,"${result.iban}","${ourIban}",${intAmount},"${req.ip}",${result.idCard})`,(results) => {
             if(results.error){
-                console.log("AAA sending 500")
-                res.status(500).send("internal database error");
-                dberror = true
+                reject("database error");
+            } else {
+                resolve("yippee!")
             }
             return;
-        }
-        
-        sql.dbquery(sql.realpool, `insert into TransactionLog value
-        (null,CURRENT_TIME,"${result.iban}","${ourIban}",${req.body.amount},"${req.ip}",${result.idCard})`,handleDBError);
-        if(dberror){
-            return;
-        }
-        sql.dbquery(sql.realpool, `update Account set balance = balance - ${req.body.amount} where idAccount = ${result.idAccount}`, handleDBError);
-        if(dberror){
-            return;
-        }
-        sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = 0 where idCard = "${result.idCard}"`, handleDBError);
-        if(!dberror){
-            res.status(200).send();
-        }
+        });
+        }).then((_) => {
+            return new Promise((resolve, reject) => {
+                sql.dbquery(sql.realpool, `update Account set balance = balance - ${intAmount} where idAccount = ${result.idAccount}`, (results) => {
+                    if(results.error){
+                        console.log("KILLLLLL");
+                        reject("database error");
+                    } else {
+                        resolve("yippee!")
+                    }
+                    return;
+                });
+            });
+        }).then((_) => {
+            return new Promise((resolve, reject) => {
+                sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = 0 where idCard = "${result.idCard}"`, (results) => {
+                    if(results.error){
+                        reject("database error");
+                    } else {
+                        resolve("yippee!")
+                    }
+                    return;
+                });
+            });
+        }).then((_) =>{
+            res.status(200).send("OK");
+        }).catch((err) => {
+            res.status(500).send(err);
+        });
         return;
     });
 }
