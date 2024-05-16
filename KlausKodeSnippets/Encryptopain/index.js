@@ -1,0 +1,1 @@
+console.log("Ultimate value, fish low, sell high")

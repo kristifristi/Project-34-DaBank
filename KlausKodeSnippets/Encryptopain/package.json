@@ -1,0 +1,13 @@
+{
+  "name": "godihateyou",
+  "version": "0.0.999",
+  "description": "devolve your understanding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "testPubprivkey": "node src/Encryption_pubprivkey.js",
+    "testHash": "node src/PincodeSecurityCode.js"
+  },
+  "author": "hell",
+  "license": "ISC"
+}
