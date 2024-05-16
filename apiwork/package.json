@@ -11,7 +11,9 @@
   "author": "me",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
     "express": "^4.19.1",
     "fs": "^0.0.1-security",
     "mysql2": "^2.3.3"
