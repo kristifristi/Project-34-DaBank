@@ -103,7 +103,7 @@ function proxyFun(endpoint, req, res){
         res.status(response.statusCode).send(piece);
     });
     response.on('end', () => {
-        console.log("proxy service ended")
+        console.log("proxy service finished")
     });
 
     proxyReq.on('error', (e) => {
@@ -186,7 +186,7 @@ function infoApi (req,res) {
 
         let genHash = sha256Stringify(body.uid,body.pincode.toString());
         if(genHash != result.hash){
-            res.status(401).json({"attempts_remaining" : result.chances});
+            res.status(401).json({"attempts_remaining" : result.chances-1});
             sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = wrongAttemptsDone + 1 where idCard = "${result.idCard}"`, (results) => {});
             return;
         }
@@ -305,7 +305,7 @@ function withdrawApi (req,res) {
 
         let genHash = sha256Stringify(body.uid,body.pincode);
         if(genHash != result.hash){
-            res.status(401).json({"attempts_remaining" : result.chances});
+            res.status(401).json({"attempts_remaining" : result.chances-1});
             sql.dbquery(sql.realpool, `update Card set wrongAttemptsDone = wrongAttemptsDone + 1 where idCard = ${result.idCard}`, (results) => {});
         }
 
