@@ -25,7 +25,6 @@ const app = express();
 app.use(cors());
 //cargo cult programming
 app.use(express.json());
-app.use(express.urlencoded());
 app.use(express.text());
 
 //imagine actually validating iban
@@ -75,13 +74,15 @@ app.all("*", (req,res,next) => {
 //blame joram for this one
 function proxyFun(endpoint, req, res){
     let data = JSON.stringify(req.body);
+    console.log("starting proxy service")
+    //console.log(data);
     let options = {
         port : 443,
         method : 'POST',
         headers : {
             'Content-type': 'application/json',
             'content-length': Buffer.byteLength(data),
-            'noob-token': token
+            'noob-token': noobtoken
         },
         key : credentials.key,
         cert : credentials.cert,
@@ -91,21 +92,28 @@ function proxyFun(endpoint, req, res){
 
     let proxyReq = https.request(`https://noob.datalabrotterdam.nl/api/noob/${endpoint}?target=${req.query.target}`, options, (response) => {
     console.log(response.statusCode);
+    response.on('error', (err) => {
+        console.log("wacky error!");
+        console.log(err);
+        res.status(500).send("error trying to forward request");
+    });
     response.on('data', (piece) => {
         //i dont care its almost always just one thing
+        //console.log(piece.toString());
         res.status(response.statusCode).send(piece);
     });
-    response.on('end', () => {});
+    response.on('end', () => {
+        console.log("proxy service ended")
+    });
 
     proxyReq.on('error', (e) => {
         console.log("man im dead " + e.message);
         res.status(500).send(e.message);
     });
+    });
 
     proxyReq.write(data);
     proxyReq.end;
-
-});
 
 }
 
@@ -198,7 +206,7 @@ app.post('/endme/accountinfo', (req,res) => {
         res.status(401).send("go away");
         return;
     }
-    if(bankID(req.body.target) == "IMDB"){
+    if(bankID(req.query.target) == "IMDB"){
         infoApi(req, res);
         return;
     }
@@ -348,7 +356,7 @@ app.post('/endme/withdraw', (req,res) => {
         res.status(401).send("go away");
         return;
     }
-    if(bankID(req.body.target) == "IMDB"){
+    if(bankID(req.query.target) == "IMDB"){
         withdrawApi(req, res);
         return;
     }
