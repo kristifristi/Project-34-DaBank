@@ -42,7 +42,7 @@ function dbquery(usingPool, querystring, callbackfunc){
             }
             callbackfunc(results);
             return;
-        })
+        });
         Connection.release();
        return;
         
