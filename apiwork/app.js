@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var http = require('http');
 var https = require('https');
 const bodyParser = require("body-parser");
 
@@ -60,7 +59,7 @@ app.all("*", (req,res,next) => {
 
         `
 
-        fs.appendFile("./logfile",string,(err) => {
+        fs.appendFile("/home/gaia/logfile",string,(err) => {
             if(err){
                 console.log(err);
             }
@@ -75,7 +74,6 @@ app.all("*", (req,res,next) => {
 function proxyFun(endpoint, req, res){
     let data = JSON.stringify(req.body);
     console.log("starting proxy service")
-    //console.log(data);
     let options = {
         port : 443,
         method : 'POST',
@@ -86,7 +84,6 @@ function proxyFun(endpoint, req, res){
         },
         key : credentials.key,
         cert : credentials.cert,
-        //ca : credentials.cert,
         checkServerIdentity: () => { return null; }
     };
 
@@ -99,7 +96,6 @@ function proxyFun(endpoint, req, res){
     });
     response.on('data', (piece) => {
         //i dont care its almost always just one thing
-        //console.log(piece.toString());
         res.status(response.statusCode).send(piece);
     });
     response.on('end', () => {
@@ -298,7 +294,8 @@ function withdrawApi (req,res) {
             res.status(412).send("account balance too low");
             return;
         }
-        if(result.dayLimit < result.spent + intAmount){
+
+        if(result.dayLimit < parseInt(result.spent)/*this is so stupid*/ + intAmount){
             res.status(403).send("withdrawal would exceed daylimit");
             return;
         }
@@ -368,8 +365,5 @@ app.use('/api', (req,res) => {
     res.status(400).send("non-existent endpoint");
 });
 
-//var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
-
-//httpServer.listen(8100);
 httpsServer.listen(8001);
