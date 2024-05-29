@@ -109,7 +109,7 @@ function proxyFun(endpoint, req, res){
     });
 
     proxyReq.write(data);
-    proxyReq.end;
+    proxyReq.end();
 
 }
 
@@ -309,13 +309,13 @@ function withdrawApi (req,res) {
         //make sure client knows if something went wrong
         const DBpromise = new Promise((resolve, reject) => {
             sql.dbquery(sql.realpool, `insert into TransactionLog value (null,CURRENT_TIME,"${realIban}","${ourIban}",${intAmount},"${req.ip}",${result.idCard})`,(results) => {
-            if(results.error){
-                reject("database error");
-            } else {
-                resolve("yippee!");
-            }
-            return;
-        });
+                if(results.error){
+                    reject("database error");
+                } else {
+                    resolve("yippee!");
+                }
+                return;
+            });
         }).then((_) => {
             return new Promise((resolve, reject) => {
                 sql.dbquery(sql.realpool, `update Account set balance = balance - ${intAmount} where idAccount = ${result.idAccount}`, (results) => {
@@ -359,6 +359,21 @@ app.post('/endme/withdraw', (req,res) => {
     }
     proxyFun("withdraw",req,res);
     return;
+});
+
+app.post('/testing/reset-test-account', (req, res) => {
+    if(!tokenCheck(req.headers)){
+        res.status(401).send("go away");
+        return;
+    }
+});
+
+app.post('/testing/block-test-account', (req,res) => {
+    if(!tokenCheck(req.headers)){
+        res.status(401).send("go away");
+        return;
+    }
+    
 });
 
 app.use('/api', (req,res) => {
